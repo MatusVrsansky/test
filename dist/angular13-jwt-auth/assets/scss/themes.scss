@@ -1,0 +1,23 @@
+@import 'node_modules/@nebular/theme/styles/theming';
+@import 'node_modules/@nebular/theme/styles/themes/default';
+@import 'src/app/login/login.component.scss';
+@import 'src/app/history/history.component.scss';
+@import 'src/app/profile/profile.component.scss';
+
+$nb-themes: nb-register-theme(
+    (
+      // add your variables here like:
+      layout-background-color: cornsilk,
+      header-text-color: black,
+      header-padding: 0,
+      header-shadow: green,
+      card-padding: 1rem 28rem,
+      footer-padding: 0,
+      footer-divider-color: red
+     
+
+
+    ),
+    default,
+    default
+);

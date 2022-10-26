@@ -1,0 +1,36 @@
+{
+  "name": "js-jwt-auth",
+  "version": "1.0.0",
+  "description": "Node.js Demo for JWT Authentication",
+  "main": "server.js",
+  "engines": {
+    "node": "14.x",
+    "npm": "8.x"
+  },
+  "scripts": {
+    "serve": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "node.js",
+    "express",
+    "jwt",
+    "authentication",
+    "mysql"
+  ],
+  "author": "matusvrsansky",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.1.2",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "jsonwebtoken": "^8.5.1",
+    "mysql2": "^2.3.3",
+    "node-cron": "^3.0.1",
+    "nodemailer": "^6.7.7",
+    "pug": "^3.0.2",
+    "request": "^2.88.2",
+    "sequelize": "^6.21.2"
+  }
+}
