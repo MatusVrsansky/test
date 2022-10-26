@@ -1,7 +1,6 @@
 const express = require("express");
 //const cors = require("cors");
 const app = express();
-const port = 8080;
  
 const http = require('http').createServer(app);
 
@@ -13,9 +12,6 @@ app.get('/', (req, res) => {
 });
 
 
-app.listen(port, () => {
-  console.log("Server is listening on port "+port);
-});
 
 /*var corsOptions = {
   origin: "http://localhost:8081"
