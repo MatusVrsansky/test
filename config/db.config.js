@@ -5,9 +5,9 @@ module.exports = {
     DB: "freedb_weatherstation",
     dialect: "mysql",
     pool: {
-      max: 50000,
+      max: 5,
       min: 0,
-      acquire: 300000,
-      idle: 100000
+      acquire: 30000,
+      idle: 10000
     }
   };
