@@ -1,6 +1,8 @@
 const express = require("express");
 //const cors = require("cors");
 const app = express();
+const cors = require("cors");
+
  
 const http = require('http').createServer(app);
 
@@ -11,11 +13,20 @@ app.get('/', (req, res) => {
   res.sendFile('index.html',{root:__dirname})
 });
 
-
+app.use(
+  cors({
+    origin: [
+      "http://localhost:3000",
+      "https://weather-testik.herokuapp.com",
+    ],
+    credentials: true,
+  })
+);
 
 /*var corsOptions = {
   origin: "http://localhost:8081"
 };*/
+
 //app.use(cors(corsOptions));
 // parse requests of content-type - application/json
 app.use(express.json());
@@ -80,6 +91,6 @@ require('./routes/user.routes')(app);
 
 
 http.listen(process.env.PORT || 3000, () => {
-  console.log(`Server is running ${process.env.PORT || 3000}`);
+  console.log(`Server is running  fgdgdfgdfgfdgf ${process.env.PORT || 3000}`);
 
 })
