@@ -13,14 +13,14 @@ app.get('/', (req, res) => {
   res.sendFile('index.html',{root:__dirname})
 });
 
-/*app.use(
+app.use(
   cors({
     origin: [
       "www.weatherbit-test.com",
     ],
     credentials: true,
   })
-);*/
+);
 
 /*var corsOptions = {
   origin: "http://localhost:8081"
