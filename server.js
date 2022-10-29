@@ -16,7 +16,6 @@ app.get('/', (req, res) => {
 app.use(
   cors({
     origin: [
-      "http://localhost:3000",
       "www.weatherbit-test.com",
     ],
     credentials: true,
