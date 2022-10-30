@@ -3,8 +3,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 
- 
-//const http = require('http').createServer(app);
+const http = require('http').createServer(app);
 
 app.use(express.static('dist/angular13-jwt-auth'))//set the static path 
 app.set('view engine', 'pug');
@@ -89,7 +88,7 @@ require('./routes/auth.routes')(app);
 require('./routes/user.routes')(app);
 
 
-/*http.listen(process.env.PORT || 3000, () => {
+http.listen(process.env.PORT || 3000, () => {
   console.log(`Server is running  fgdgdfgdfgfdgf ${process.env.PORT || 3000}`);
 
-})*/
+})
