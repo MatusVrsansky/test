@@ -1,94 +1,58 @@
-const express = require("express");
-//const cors = require("cors");
-const app = express();
-const cors = require("cors");
+require('dotenv').config()
+const express = require('express')
+const config = require('./config')
+const scheduler = require('./scheduler')
+const app = express()
+const cors = require('cors')
+const http = require('http').createServer(app)
+const angularPath = 'dist/angular13-jwt-auth'
 
-const http = require('http').createServer(app);
+// set the static path
+app.use(express.static(angularPath))
+app.set('view engine', 'pug')
 
-app.use(express.static('dist/angular13-jwt-auth'))//set the static path 
-app.set('view engine', 'pug');
-
-app.get('/', (req, res) => {
-  res.sendFile('index.html',{root:__dirname})
-});
-
+// cors
 app.use(
   cors({
     origin: [
-      "*",
+      '*'
     ],
-    credentials: true,
+    credentials: true
   })
-);
+)
 
-/*var corsOptions = {
-  origin: "http://localhost:8081"
-};*/
-
-//app.use(cors(corsOptions));
 // parse requests of content-type - application/json
-app.use(express.json());
+app.use(express.json())
 // parse requests of content-type - application/x-www-form-urlencoded
-app.use(express.urlencoded({ extended: true }));
-// simple route
+app.use(express.urlencoded({ extended: true }))
 
-/*app.get("/", (req, res) => {
-  res.json({ message: "Welcome to bezkoder application. fdsfsdfsdfdfds" });
-});*/
-// set port, listen for requests
-//const PORT = process.env.PORT || 8080;
-/*app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}.`);
-});*/
+// synchronize models
+const db = require('./models')
+const Role = db.role
+db.sequelize.sync()
+Role.findOrCreate({
+  where: { id: 1, name: 'user' }
+})
+Role.findOrCreate({
+  where: { id: 2, name: 'moderator' }
+})
+Role.findOrCreate({
+  where: { id: 3, name: 'admin' }
+})
 
+// run cron
+scheduler.initCrons(config)
 
-const db = require("./models");
-const Role = db.role;
-db.sequelize.sync();
+// api routes
+require('./routes/auth.routes')(app)
+require('./routes/user.routes')(app)
 
+// angular spa route
+app.get('/*', (req, res) => {
+  res.sendFile(`${angularPath}/index.html`, { root: __dirname })
+})
 
-function initial() {
-    Role.create({
-      id: 1,
-      name: "user"
-    });
-   
-    Role.create({
-      id: 2,
-      name: "moderator"
-    });
-   
-    Role.create({
-      id: 3,
-      name: "admin"
-    });
-  }
-
-
-
-var message = "<p style='font-weight:bold;'> Hi. My name is John </p>";
-
-
-console.log('server.js')
-
-
-// run cron 
-const config = require('./config');
-const scheduler = require('./scheduler')
-
-scheduler.initCrons(config);
-
-
-// foreach all data of table Users
-// update table user with new notification text
-
-
-  // routes
-require('./routes/auth.routes')(app);
-require('./routes/user.routes')(app);
-
-
+// listener
 http.listen(process.env.PORT || 3000, () => {
-  console.log(`Server is running  fgdgdfgdfgfdgf ${process.env.PORT || 3000}`);
-
+  console.log(`Server is running at port: ${process.env.PORT || 3000}`)
 })

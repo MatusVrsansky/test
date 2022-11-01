@@ -1,38 +1,35 @@
+/* eslint-disable no-unused-vars */
 
 module.exports = () => {
+  const db = require('../models')
+  const Notifications = db.notifications
 
-    
-    const db = require("../models");
-    const Notifications = db.notifications;
+  // send email
+  const nodemailer = require('nodemailer')
 
-    // send email
-    const nodemailer = require('nodemailer');
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'microbitpython@gmail.com',
+      pass: 'mbwnqmmpwgopnoga'
+    }
+  })
 
-    const transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-            user: 'microbitpython@gmail.com',
-            pass: 'mbwnqmmpwgopnoga',
-        }
-    });
+  async function notifyUser () {
+    const results = await Notifications.findAll()
+    const test = JSON.stringify(results)
 
+    const dataObj = JSON.parse(test)
 
-    async function notifyUser() {
-        const results = await Notifications.findAll();
-        const test = JSON.stringify(results)
+    // get current weather data from ThingSpeak API
+    const weatherBitTemperature = 23
 
-        dataObj = JSON.parse(test);
+    const result = []
 
-        // get current weather data from ThingSpeak API
-        const weatherBitTemperature = 23;
+    for (let i = 0; i < dataObj.length; i++) {
+      await Notifications.update({ notification_sent: false }, { where: { id: dataObj[i].id } })
 
-        var result = [];
- 
-        for (var i = 0; i < dataObj.length; i++) {
-            await Notifications.update({notification_sent: false}, { where: {id: dataObj[i].id}})
-           
-            /*result.push(dataObj[i].username + ' ' + dataObj[i].email);
-            
+      /* result.push(dataObj[i].username + ' ' + dataObj[i].email);
 
             if(dataObj[i].active_notification) {
                 console.log(dataObj[i].username)
@@ -62,13 +59,9 @@ module.exports = () => {
                         }
                         break;
                 }
-            }*/
-
+            } */
     }
-}
+  }
 
-
-    notifyUser();
-
-
+  notifyUser()
 }

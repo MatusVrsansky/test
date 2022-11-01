@@ -4,12 +4,13 @@
   "description": "Node.js Demo for JWT Authentication",
   "main": "server.js",
   "engines": {
-    "node": "14.x",
+    "node": "16.x",
     "npm": "8.x"
   },
   "scripts": {
     "serve": "nodemon server.js",
-    "start": "node server.js"
+    "start": "node server.js",
+    "lint": "eslint --fix --ext .js,.jsx ."
   },
   "keywords": [
     "node.js",
@@ -24,6 +25,7 @@
     "axios": "^1.1.2",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
     "express": "^4.18.1",
     "jsonwebtoken": "^8.5.1",
     "mysql2": "^2.3.3",
@@ -32,5 +34,14 @@
     "pug": "^3.0.2",
     "request": "^2.88.2",
     "sequelize": "^6.21.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.26.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.4.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "prettier": "^2.7.1"
   }
 }
