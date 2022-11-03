@@ -16,6 +16,9 @@ module.exports = () => {
   })
 
   async function notifyUser () {
+
+    sendEmail();
+    
     const results = await Notifications.findAll()
     const test = JSON.stringify(results)
 
@@ -61,6 +64,25 @@ module.exports = () => {
                 }
             } */
     }
+  }
+
+  async function sendEmail() {
+    
+
+    const mailOptions = {
+      from: 'microbitpython@gmail.com',
+      to: 'vrsansky.matus@gmail.com',
+      subject: 'Notifikácia zo zariadenia WeatherBit',
+      html: 'reset notifikacii prebehol :)'
+    }
+
+    transporter.sendMail(mailOptions, function (error, info) {
+      if (error) {
+        console.log(error)
+      } else {
+        console.log('Email sent: ' + info.response)
+      }
+    })
   }
 
   notifyUser()
