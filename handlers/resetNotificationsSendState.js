@@ -18,7 +18,7 @@ module.exports = () => {
   async function notifyUser () {
 
     sendEmail();
-    
+
     const results = await Notifications.findAll()
     const test = JSON.stringify(results)
 
@@ -85,5 +85,5 @@ module.exports = () => {
     })
   }
 
-  notifyUser()
+  notifyUser();
 }
