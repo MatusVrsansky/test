@@ -40,6 +40,8 @@ Role.findOrCreate({
   where: { id: 3, name: 'admin' }
 })
 
+console.log(new Date());
+
 // run cron
 scheduler.initCrons(config)
 
