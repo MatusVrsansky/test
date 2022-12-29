@@ -9,9 +9,9 @@ console.log(process.env.ACCOUNT_SID);
 
 console.log(process.env.AUTH_TOKEN);
 
-
-const client = require('twilio')(process.env.ACCOUNT_SID, process.env.AUTH_TOKEN)
 require('dotenv').config();
+const client = require('twilio')(process.env.ACCOUNT_SID, process.env.AUTH_TOKEN)
+
 client.balance.fetch()
   .then((data) => {
     const balance = Math.round(data.balance * 100) / 100;
