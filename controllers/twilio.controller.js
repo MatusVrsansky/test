@@ -3,7 +3,9 @@
 
 exports.getTwilioAccountBalance = (req, res) => {
 
-const client = require('twilio')(process.env.ACCOUNT_SID, process.env.AUTH_TOKEN)
+
+
+const client = require('twilio')("ACc78156a11cc1654f2bd4882aa522c735", "8aa963196bc7ae318ad80366bab817ae")
 require('dotenv').config();
 client.balance.fetch()
   .then((data) => {
