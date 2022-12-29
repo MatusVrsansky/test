@@ -1,8 +1,8 @@
 module.exports = {
-  HOST: "sql.freedb.tech",
-  USER: "freedb_matus",
-  PASSWORD: "xZVCxX6EwN!h28v",
-  DB: "freedb_weatherstation",
+  HOST: process.env.DB_HOST,
+  USER: process.env.DB_USER,
+  PASSWORD: process.env.DB_PASSWORD,
+  DB: process.env.DB_NAME,
   dialect: "mysql",
   pool: {
     max: 5,
