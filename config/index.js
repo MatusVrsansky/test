@@ -7,4 +7,5 @@ module.exports = {
     frequency: "0 0 * * *",
     handler: "handlers/resetSentNotifications"
   },
+  
 }
