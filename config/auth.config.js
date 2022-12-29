@@ -1,3 +1,3 @@
 module.exports = {
-  secret: process.env.JWT_SECRET
+  secret: "bezkoder-secret-key"
 }

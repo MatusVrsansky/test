@@ -45,9 +45,13 @@ console.log(new Date());
 // run cron
 scheduler.initCrons(config)
 
-// api routes
-require('./routes/auth.routes')(app)
-require('./routes/user.routes')(app)
+
+// routes
+require('./routes/auth.routes')(app);
+require('./routes/user.routes')(app);
+require('./routes/notifications.routes')(app);
+require('./routes/twilio.routes')(app);
+require('./routes/config.routes')(app);
 
 // angular spa route
 app.get('/*', (req, res) => {
@@ -55,6 +59,6 @@ app.get('/*', (req, res) => {
 })
 
 // listener
-http.listen(process.env.PORT || 3000, () => {
-  console.log(`Server is running at port: ${process.env.PORT || 3000}`)
+http.listen(process.env.PORT || 8080, () => {
+  console.log(`Server is running at port: ${process.env.PORT || 8080}`)
 })

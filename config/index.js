@@ -1,14 +1,10 @@
 module.exports = {
-  hello: {
-    frequency: '*/10 * * * * *',
-    handler: 'handlers/sayhello'
+  checkNotifications: {
+    frequency: "*/1 07-21 * * *",
+    handler: "handlers/checkNotifications"
   },
-  resetNotificationsSendState: {
-    frequency: '0 0 * * *',
-    handler: 'handlers/resetNotificationsSendState'
-  }
-  /* tacos: {
-        frequency: "* * * * *",
-        handler: "handlers/tacos"
-    } */
+  resetSentNotifications: {
+    frequency: "0 0 * * *",
+    handler: "handlers/resetSentNotifications"
+  },
 }
