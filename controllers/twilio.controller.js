@@ -3,7 +3,7 @@
 
 exports.getTwilioAccountBalance = (req, res) => {
 
-console.log('getTwilioAccountBalance');
+console.log('getTwilioAccountBalance from backend');
 
 console.log(process.env.ACCOUNT_SID);
 
