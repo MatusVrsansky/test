@@ -208,9 +208,6 @@ module.exports = () => {
 
         else {
             console.log('nejdem poslat sms, admin to zakazal');
-        }
-
-       
+        } 
     }
-
 }
