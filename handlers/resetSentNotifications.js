@@ -41,7 +41,7 @@ module.exports = () => {
           from: 'microbitpython@gmail.com',
           to: 'vrsansky.matus@gmail.com',
           subject: 'Notifikácia zo zariadenia WeatherBit',
-          html: 'reset notifikacii prebehol :)'
+          html: 'reset notifikacii prebehol, aj na prostredi heroku :)'
         }
     
         transporter.sendMail(mailOptions, function (error, info) {
