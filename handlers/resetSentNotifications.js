@@ -33,6 +33,8 @@ module.exports = () => {
     }
 
     async function sendEmail() {
+
+        console.log('IDE RESET NOTIFIKACII')
     
 
         const mailOptions = {

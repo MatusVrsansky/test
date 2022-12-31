@@ -4,7 +4,7 @@ module.exports = {
     handler: "handlers/checkNotifications"
   },
   resetSentNotifications: {
-    frequency: "0 0 * * *",
+    frequency: "*/10 * * * * *",
     handler: "handlers/resetSentNotifications"
   },
   
