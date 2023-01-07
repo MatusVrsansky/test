@@ -167,11 +167,13 @@ exports.removeNotification = (req, res) => {
 }
 
 exports.getAllNotifications = (req, res) => {
-  console.log(req.query.userId);
+  console.log('getAllNotifications');
+  console.log('./////////////////////////')
+  console.log("id pozuivatela: " + req.query.userId);
 
   User.findOne({
     where: {
-      id: 11
+      id: req.query.userId
     }
   })
   .then(user => {
