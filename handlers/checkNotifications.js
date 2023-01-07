@@ -23,8 +23,7 @@ module.exports = () => {
 
     axios.get('https://api.thingspeak.com/channels/1825300/feeds.json?api_key=ERX6U69VZ9F5MSFM&results=1')
     .then(res => {
-        
-       checkTemperatureNotification(res.data.feeds[0]['field1']);
+        checkTemperatureNotification(res.data.feeds[0]['field1']);
        checkWindSpeedNotification(res.data.feeds[0]['field2']);
        checkRaingGaugeNotification(res.data.feeds[0]['field3']);
        checkWindDirectionNotification(res.data.feeds[0]['field4']);
@@ -41,6 +40,8 @@ module.exports = () => {
 
 
     async function checkTemperatureNotification(value) {
+
+    
 
         console.log('idu sa pozriet teploty')
         
@@ -393,9 +394,10 @@ module.exports = () => {
             .then(respond => {
             // console.log(user.email)
             sendSms = respond.value;
+            console.log("Respond for SMS: " + sendSms);
             });
 
-       
+    
 
         await User.findOne({
             where: {
@@ -404,7 +406,6 @@ module.exports = () => {
           })
           .then(user => {
            // console.log(user.email)
-            console.log(user);
             emailAddress = user.email;
             phone_number = user.phone_number;
           });
