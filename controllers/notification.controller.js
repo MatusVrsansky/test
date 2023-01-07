@@ -171,7 +171,7 @@ exports.getAllNotifications = (req, res) => {
 
   User.findOne({
     where: {
-      id: req.query.userId
+      id: 11
     }
   })
   .then(user => {

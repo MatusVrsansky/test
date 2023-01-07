@@ -15,9 +15,9 @@ client.balance.fetch()
         balance
       })
   })
-  .catch(function(error) {
+ /* .catch(function(error) {
     console.log(error);
-  });
+  }); */
   
 };
 
