@@ -397,7 +397,6 @@ module.exports = () => {
             console.log("Respond for SMS: " + sendSms);
             });
 
-    
 
         await User.findOne({
             where: {
