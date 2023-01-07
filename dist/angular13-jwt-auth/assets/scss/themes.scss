@@ -13,7 +13,12 @@ $nb-themes: nb-register-theme(
       header-shadow: green,
       card-padding: 1rem 28rem,
       footer-padding: 0,
-      footer-divider-color: red
+      footer-divider-color: red,
+      toastr-warning-background-color: #FF0000,
+      toastr-warning-border-color: #FF0000,
+      toastr-icon-warning-color: #FF0000,
+      toastr-destroyable-warning-hover-background-color: #FF0000,
+      toastr-destroyable-warning-hover-border-color: #FF0000
      
 
 

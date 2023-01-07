@@ -39,7 +39,7 @@ module.exports = (sequelize, Sequelize) => {
       soil_mosture_notification: {
         type: Sequelize.INTEGER
       },
-      temperature_windSpeed_operator: {
+      compare_operator: {
         type: Sequelize.STRING 
       },
       notification_sent: {

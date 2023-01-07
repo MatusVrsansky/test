@@ -10,7 +10,7 @@ checkDuplicateRegistration = (req, res, next) => {
   }).then(user => {
     if (user) {
       res.status(400).send({
-        message: "Používateľské meno sa už používa!"
+        message: "Prihlasovacie meno sa už používa!"
       });
       return;
     }

@@ -18,7 +18,8 @@ exports.sendContactEmail = (req, res) => {
         to: 'microbitpython@gmail.com',
         replyTo: req.body.email,
         subject: 'Email z kontaktného formulára',
-        html: req.body.message
+        html: "<p><strong>Meno kontaktnej osoby z formuláru: </strong>" + req.body.name + "</p>" +
+            "<p><strong>Správa z formuláru: </strong>" + req.body.message + "</p>"
       }
   
       transporter.sendMail(mailOptions, function (error, info) {

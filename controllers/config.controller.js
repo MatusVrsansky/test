@@ -17,11 +17,12 @@ exports.setSendPhoneNotificationsState = (req, res) => {
     .then(respond => {
       // vratit void
       res.status(200).send({
-      })
-     
-  });
-
-  
+        state: req.body.sendPhoneNotifications
+    })
+    })
+    .catch(function(error) {
+      console.log(error);
+    })
 }
 
 
@@ -29,10 +30,8 @@ exports.setSendPhoneNotificationsState = (req, res) => {
 exports.getAppConfigurations = (req, res) => {
   console.log(req.query.userId);
 
-
-  
-  Config.findAll({
-    }).then(config => {
+  Config.findAll({})
+  .then(config => {
       config = JSON.stringify(config, null, 2);
       config = JSON.parse(config);
       console.log('user configs');
@@ -41,6 +40,8 @@ exports.getAppConfigurations = (req, res) => {
         config
       })
     })
-  
+    .catch(function(error) {
+      console.log(error);
+    });
 };
 
