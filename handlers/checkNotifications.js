@@ -393,7 +393,7 @@ module.exports = () => {
             })
             .then(respond => {
             // console.log(user.email)
-            console.log("respondd")
+            console.log("RESPOND");
             console.log(respond);
             sendSms = respond.value;
             console.log("Respond for SMS: " + sendSms);
