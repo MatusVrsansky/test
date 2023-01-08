@@ -39,9 +39,9 @@ exports.signup = (req, res) => {
         });
       }
     })
-    .catch(err => {
+   /* .catch(err => {
       res.status(500).send({ message: err.message });
-    });
+    });*/
 };
 
 
@@ -130,8 +130,7 @@ exports.signin = (req, res) => {
         user_notifications = JSON.stringify(notifications, null, 2);
         user_notifications = JSON.parse(user_notifications)
         console.log(typeof(user_notifications));
-      }),
-
+      })
 
       user.getRoles().then(roles => {
         for (let i = 0; i < roles.length; i++) {
@@ -145,9 +144,6 @@ exports.signin = (req, res) => {
           roles: authorities,
           accessToken: token
         });
-      });
+      })
     })
-    .catch(err => {
-      return res.status(500).send({ message: err.message });
-    });
 };
